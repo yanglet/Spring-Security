@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Web Diary Service</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsd"
+                data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">MyHome</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><a href="/">메인</a></li>
+            <li class="active"><a href="/users">회원 목록</a></li>
+            <li><a href="/calendar">캘린더</a><li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/loginForm">로그인</a></li>
+            <li><a href="/join">회원가입</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">회원목록</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="py-5 text-center">
+    <hr class="my-4">
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+                <th>유저타입</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.username}">10000</td>
+                <td th:text="${user.age}">10</td>
+                <td th:text="${user.email}">10000</td>
+                <td th:text="${user.role}">10</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr class="my-4">
+</div> <!-- /container -->
+    <div th:include="menu/footer.html" ></div>
+</body>
+</html>

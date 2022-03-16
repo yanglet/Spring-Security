@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Diary Service</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <style>
+        .field-error {
+            border-color: red;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsd"
+                data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">MyHome</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><a href="/">메인</a></li>
+            <li><a href="/users">회원 목록</a></li>
+                <li><a href="/calendar">캘린더</a><li>
+            </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/loginForm">로그인</a></li>
+            <li class="active"><a href="/join">회원가입</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">회원가입</h1>
+    </div>
+</div>
+<form action="basic/join" th:action th:object="${userForm}" method="post">
+    <div class="container">
+        <div>
+            <label th:for="username">아이디</label>
+            <br>
+            <input type="text" th:field="*{username}" th:errorclass="username" class="form-control"
+                   placeholder="아이디를 입력해주세요">
+            <div th:errors="*{username}" class="field-error"></div>
+        </div><br>
+        <div>
+            <label th:for="password">비밀번호</label>
+            <br>
+            <input type="text" th:field="*{password}" th:errorclass="password" class="form-control"
+                   placeholder="비밀번호를 입력해주세요">
+            <div th:errors="*{password}" class="field-error"></div>
+        </div><br>
+        <div>
+            <label th:for="email">이메일</label>
+            <br>
+            <input type="text" th:field="*{email}" th:errorclass="email" class="form-control"
+                   placeholder="아이디를 입력해주세요">
+            <div th:errors="*{email}" class="field-error"></div>
+        </div><br>
+        <div>
+            <label th:for="age">나이</label>
+            <br>
+            <input type="text" th:field="*{age}" class="form-control"
+                   placeholder="나이를 입력해주세요">
+        </div>
+        <br><br>
+        <label th:for="role">회원타입</label>
+        <br>
+        <label class="btn btn-primary active">
+            <input type="radio" th:field="*{role}" value="ROLE_ADMIN">관리자
+        </label>
+        <label class="btn btn-primary">
+            <input type="radio" th:field="*{role}" value="ROLE_USER">유저
+        </label>
+        <br><br><br>
+        <div>
+            <button class="btn btn-primary form-control" type="submit">회원가입</button>
+        </div>
+    </div>
+    <br><br>
+    <div th:include="menu/footer.html" ></div>
+</form>
+</body>
+</html>

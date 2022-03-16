@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang='en'>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Diary Service</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link href='/resources/calendar/lib/main.css' rel='stylesheet' />
+    <script src='/resources/calendar/lib/main.js'></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type='text/javascript'>
+    document.addEventListener('DOMContentLoaded', function() {
+    var events_data;
+    var diary_data;
+    $.ajax({
+                type:"get",
+                url:"http://localhost:9090/calendar?method=data",
+                dataType:"json",
+                async:false,
+                data: {},
+                success: function (data) {
+                      events_data = data;
+                }
+    });
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      initialDate: '2022-02-20',
+      navLinks: true, // can click day/week names to navigate views
+      selectable: true,
+      selectMirror: true,
+      select: function(arg) {
+        var title = prompt('Event Title:');
+        if (title) {
+          calendar.addEvent({
+            title: title,
+            start: arg.start,
+            end: arg.end,
+            allDay: arg.allDay
+          })
+        }
+        calendar.unselect()
+      },
+      eventClick: function(arg) {
+        if (confirm('Are you sure you want to delete this event?')) {
+          arg.event.remove()
+        }
+      },
+      editable: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+
+<!--  events: events_data-->
+
+      eventSources: [
+      events_data
+      ]
+
+    });
+    calendar.render();
+  });
+</script>
+    <style>
+body {
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+  #calendar {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsd"
+                data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">MyHome</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><a href="/">메인</a></li>
+            <li><a href="/users">회원 목록</a></li>
+            <li class="active"><a href="/calendar">캘린더</a><li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/loginForm">로그인</a></li>
+            <li><a href="/join">회원가입</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="jumbotron">
+    <div class="container">
+        <!--<h5 th:if="${session.mem_id != null}" th:text="${session.mem_id}">10</h5>-->
+        <h1 class="display-3">캘린더</h1>
+    </div>
+</div>
+<div id='calendar'></div>
+<div th:include="menu/footer.html" ></div>
+</body>
+</html>
