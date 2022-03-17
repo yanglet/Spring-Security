@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
     <title>Web Diary Service</title>
@@ -26,8 +26,9 @@
             <li><a href="/calendar">캘린더</a><li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/loginForm">로그인</a></li>
-            <li><a href="/join">회원가입</a></li>
+            <li sec:authorize="isAnonymous()"><a href="/loginForm">로그인</a></li>
+            <li sec:authorize="isAnonymous()"><a href="/join">회원가입</a></li>
+            <li sec:authorize="isAuthenticated()"><a href="/logout">로그아웃</a></li>
         </ul>
     </div>
 </nav>

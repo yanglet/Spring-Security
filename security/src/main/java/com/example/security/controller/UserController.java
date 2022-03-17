@@ -22,6 +22,11 @@ public class UserController {
     private final UserRepository userRepository;
     private final UserService userService;
 
+    @GetMapping("/exex")
+    public String error(){
+        throw new IllegalStateException("오류입니다");
+    }
+
     @GetMapping("/loginForm")
     public String loginform(){
         return "basic/loginForm";
@@ -59,7 +64,7 @@ public class UserController {
         return "basic/users";
     }
 
-    @Secured("ROLE_USER")
+    @Secured({"ROLE_ADMIN","ROLE_USER"})
     @GetMapping("/calendar")
     public String calendar(){
         return "basic/calendar";

@@ -1,11 +1,8 @@
 package com.example.security.service;
 
-import com.example.security.entity.QUser;
 import com.example.security.entity.User;
 import com.example.security.repository.UserRepository;
 import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.QueryFactory;
-import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,7 +20,7 @@ public class UserService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
-    public List<User> searchMember(String usernameCond, Integer ageCond) {
+    public List<User> searchUser(String usernameCond, Integer ageCond) {
         BooleanBuilder builder = new BooleanBuilder();
 
         if (usernameCond != null) {

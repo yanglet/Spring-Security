@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>서버 오류페이지</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">서버 오류 페이지입니다.</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="jumbotron">
+        <div class="container">
+            <h2 th:text="|상태코드 : ${status}|"></h2>
+            <h4 th:text="|에러 : ${error}|"> </h4>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
