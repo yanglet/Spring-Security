@@ -1,4 +1,4 @@
-package com.example.security.security;
+package com.example.security.security.auth;
 
 import com.example.security.entity.User;
 import com.example.security.repository.UserRepository;
@@ -18,7 +18,7 @@ public class PrincipalDetailsService implements UserDetailsService {
     @SneakyThrows
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User findUser = userRepository.findByUsername(username).orElseThrow(Exception::new);
+        User findUser = userRepository.findByUsername(username);
 
         return new PrincipalDetails(findUser);
     }

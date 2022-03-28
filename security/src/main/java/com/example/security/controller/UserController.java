@@ -18,7 +18,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-public class UserController {
+public class UserController{
     private final UserRepository userRepository;
     private final UserService userService;
 

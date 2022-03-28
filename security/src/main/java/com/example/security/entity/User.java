@@ -19,5 +19,9 @@ public class User extends BaseEntity {
     private Integer age;
     private String role;
 
+    // 어떤 방식으로 로그인했는지 ex) 구글 등 -> userRequest.getClientRegistration()
+    private String provider;
+    private String providerId;
+
     protected User(){}
 }
