@@ -2,6 +2,7 @@ package com.example.security.service;
 
 import com.example.security.entity.User;
 import com.example.security.repository.UserRepository;
+import com.example.security.security.oauth2.provider.OAuth2UserInfo;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
@@ -44,6 +45,32 @@ public class UserService {
         if( !validateDuplicateMember(user) ) {
             userRepository.save(user);
         }
+    }
+
+    public User oauthJoin(OAuth2UserInfo oAuth2UserInfo){
+        String provider = oAuth2UserInfo.getProvider();
+        String providerId = oAuth2UserInfo.getProviderId();
+        String username = provider + "_" + providerId; // google_12312894120840 이런식
+        String password = bCryptPasswordEncoder.encode("양글렛");
+        String email = oAuth2UserInfo.getEmail();
+        String role = "ROLE_USER";
+
+        User userEntity = userRepository.findByUsername(username);
+
+        if(userEntity == null){
+            userEntity = User.builder()
+                    .username(username)
+                    .password(password)
+                    .email(email)
+                    .role(role)
+                    .provider(provider)
+                    .providerId(providerId)
+                    .build();
+
+            userRepository.save(userEntity);
+        }
+
+        return userEntity;
     }
 
     private boolean validateDuplicateMember(User user) {

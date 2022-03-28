@@ -7,7 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 public class EncodeConfig {
 
-    // 스프링 빈 순환 참조 해결
+    //스프링 빈 순환참조 해결
     @Bean
     public BCryptPasswordEncoder encodePassword(){
         return new BCryptPasswordEncoder();

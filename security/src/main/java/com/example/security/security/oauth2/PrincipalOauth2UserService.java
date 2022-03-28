@@ -22,7 +22,7 @@ import java.util.Map;
 public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
@@ -41,29 +41,8 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
             System.out.println("지원하지 않는 소셜 로그인 입니다.");
         }
 
-        String provider = oAuth2UserInfo.getProvider();
-        String providerId = oAuth2UserInfo.getProviderId();
-        String username = provider + "_" + providerId; // google_12312894120840 이런식
-        String password = bCryptPasswordEncoder.encode("양글렛");
-        String email = oAuth2UserInfo.getEmail();
-        String role = "ROLE_USER";
-
-        User userEntity = userRepository.findByUsername(username);
-
-        if(userEntity == null){
-            userEntity = User.builder()
-                    .username(username)
-                    .password(password)
-                    .email(email)
-                    .role(role)
-                    .provider(provider)
-                    .providerId(providerId)
-                    .build();
-
-            userRepository.save(userEntity);
-        }
+        User userEntity = userService.oauthJoin(oAuth2UserInfo);
 
         return new PrincipalDetails(userEntity, oAuth2User.getAttributes());
     }
-
 }
