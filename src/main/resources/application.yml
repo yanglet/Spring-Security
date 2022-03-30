@@ -1,10 +1,4 @@
 spring:
-  # 추가
-  session:
-    store-type: jdbc
-  profiles:
-    include: real-db
-  # 추가 끝
   datasource:
     url: jdbc:mysql://localhost:3306/calendarservice
     username: yanglet
@@ -17,9 +11,6 @@ spring:
       ddl-auto: create-drop
     properties:
       hibernate:
-        # 추가
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-        # 추가 끝
         show_sql: true
         format_sql: true
 
