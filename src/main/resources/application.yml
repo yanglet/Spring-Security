@@ -1,4 +1,8 @@
 spring:
+  session:
+    store-type: jdbc
+  profiles:
+    include: real-db
   datasource:
     url: jdbc:mysql://localhost:3306/calendarservice
     username: yanglet
@@ -13,6 +17,7 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
   security:
     oauth2:
@@ -48,3 +53,4 @@ logging.level:
 server:
   port: 9090
 #  org.hibernate.type: trace
+
