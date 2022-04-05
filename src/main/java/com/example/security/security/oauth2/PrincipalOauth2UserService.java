@@ -1,14 +1,12 @@
 package com.example.security.security.oauth2;
 
 import com.example.security.entity.User;
-import com.example.security.repository.UserRepository;
 import com.example.security.security.auth.PrincipalDetails;
 import com.example.security.security.oauth2.provider.GoogleUserInfo;
 import com.example.security.security.oauth2.provider.NaverUserInfo;
 import com.example.security.security.oauth2.provider.OAuth2UserInfo;
 import com.example.security.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
@@ -21,7 +19,6 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 
-    private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final UserService userService;
 
     @Override

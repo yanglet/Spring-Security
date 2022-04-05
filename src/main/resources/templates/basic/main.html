@@ -1,7 +1,8 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Web Diary Service</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
@@ -17,12 +18,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">MyHome</a>
+        <a class="navbar-brand" href="/main">MyHome</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li><a href="/main">메인</a></li>
-            <li class="active"><a href="/users">회원 목록</a></li>
+            <li class="active"><a href="/main">메인</a></li>
+            <li><a href="/users">회원 목록</a></li>
             <li><a href="/calendar">캘린더</a><li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -34,34 +35,18 @@
 </nav>
 <div class="jumbotron">
     <div class="container">
-        <h1 class="display-3">회원목록</h1>
+        <h1 class="display-3">메인페이지</h1>
     </div>
 </div>
 <div class="container">
-    <div class="py-5 text-center">
-    <hr class="my-4">
-    <div>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>이름</th>
-                <th>나이</th>
-                <th>성별</th>
-                <th>유저타입</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="user : ${users}">
-                <td th:text="${user.username}">10000</td>
-                <td th:text="${user.age}">10</td>
-                <td th:text="${user.email}">10000</td>
-                <td th:text="${user.role}">10</td>
-            </tr>
-            </tbody>
-        </table>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Web Calendar Service</h1>
+            <p>메인페이지입니다.</p>
+            <p><a class="btn btn-primary btn-pull" href="#" role="button">그냥 파란 버튼</a></p>
+        </div>
     </div>
-    <hr class="my-4">
-</div> <!-- /container -->
-    <div th:include="menu/footer.html" ></div>
+</div>
+<div th:include="menu/footer.html" ></div>
 </body>
 </html>

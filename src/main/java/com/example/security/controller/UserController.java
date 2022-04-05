@@ -27,6 +27,11 @@ public class UserController{
         throw new IllegalStateException("오류입니다");
     }
 
+    @GetMapping("/main")
+    public String mainForm(){
+        return "basic/main";
+    }
+
     @GetMapping("/loginForm")
     public String loginform(){
         return "basic/loginForm";
