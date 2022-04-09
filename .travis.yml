@@ -8,7 +8,7 @@ branches:
   only:
     - main
 
-# 빌드 전에 gradlew의 권한 추가.
+# 빌드 전에 gradlew의 권한 추가
 before_install:
   - chmod +x gradlew
 
