@@ -1,0 +1,28 @@
+# 언어와 jdk의 버전 설정
+language: java
+jdk:
+  - openjdk11
+
+# 어느 브랜치가 push 될 때 수행할지를 정함
+branches:
+  only:
+    - main
+
+# 빌드 전에 gradlew의 권한 추가
+before_install:
+  - chmod +x gradlew
+
+# Travis CI 서버의 Home
+# gradle을 통해 의존성을 받으면 이를 캐시하여 배포할 때 마다 다시 받지 않도록 함
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.gradle'
+
+script: "./gradlew clean build"
+
+# CI 실행 완료 시 메일로 알람
+notifications:
+  email:
+    recipients:
+      - 'didcnddnr@skuniv.ac.kr'
