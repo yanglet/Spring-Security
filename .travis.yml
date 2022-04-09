@@ -29,8 +29,8 @@ before_deploy:
 
 deploy:
   - provider: s3
-    access_key_id: AKIAWEVNIAL7KZDEE5UQ
-    secret_access_key: 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
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
     bucket: yanglet-springboot-build
     region: ap-northeast-2
     skip_cleanup: true
