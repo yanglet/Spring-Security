@@ -6,3 +6,12 @@
 - [AWS EC2 인스턴스 생성](https://yanglet.tistory.com/12)
 - [AWS EC2 서버 접속](https://yanglet.tistory.com/13)
 - [AWS RDS 인스턴스 생성](https://yanglet.tistory.com/14)
+
+
+
+### CI 배포 자동화
+- [Travis CI 연동](https://yanglet.tistory.com/15)
+- [Travis CI 와 AWS S3 연동](https://yanglet.tistory.com/16)
+- [AWS CodeDeploy 연동](https://yanglet.tistory.com/17)
+- [Travis CI, S3, CodeDeploy 연동 1](https://yanglet.tistory.com/18)
+- [Travis CI, S3, CodeDeploy 연동 1](https://yanglet.tistory.com/19)
