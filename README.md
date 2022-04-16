@@ -6,6 +6,7 @@
 - [AWS EC2 인스턴스 생성](https://yanglet.tistory.com/12)
 - [AWS EC2 서버 접속](https://yanglet.tistory.com/13)
 - [AWS RDS 인스턴스 생성](https://yanglet.tistory.com/14)
+- [AWS RDS 접속 및 확인](https://yanglet.tistory.com/20)
 
 
 
