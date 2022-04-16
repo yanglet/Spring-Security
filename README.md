@@ -14,4 +14,4 @@
 - [Travis CI 와 AWS S3 연동](https://yanglet.tistory.com/16)
 - [AWS CodeDeploy 연동](https://yanglet.tistory.com/17)
 - [Travis CI, S3, CodeDeploy 연동 1](https://yanglet.tistory.com/18)
-- [Travis CI, S3, CodeDeploy 연동 1](https://yanglet.tistory.com/19)
+- [Travis CI, S3, CodeDeploy 연동 2](https://yanglet.tistory.com/19)
