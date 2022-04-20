@@ -10,8 +10,7 @@
 - [AWS EC2 서버 접속](https://yanglet.tistory.com/13)
 - [AWS RDS 인스턴스 생성](https://yanglet.tistory.com/14)
 - [AWS RDS 접속 및 확인](https://yanglet.tistory.com/20)
-
-
+- [AWS EC2에 프로젝트 배포](https://yanglet.tistory.com/21)
 
 ### CI 배포 자동화
 - [Travis CI 연동](https://yanglet.tistory.com/15)
