@@ -3,7 +3,7 @@
 # 쉬고 있는 profile 찾기 : real1 사용 중이면 real2가 쉼 반대면 real1가 쉼
 
 function find_idle_profile() {
-    RESPONSE_CODE=$(curl -s -o /dev/null -w "${http_code}" http://localhost/profile)
+    RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/profile)
 
     if [ ${RESPONSE_CODE} -ge 400 ] # 400보다 크면 에러 4xx, 5xx
     then
