@@ -1,56 +1,13 @@
+server:
+  port: 9090
+
 spring:
   session:
     store-type: jdbc
   profiles:
     include: real-db
-  datasource:
-    url: jdbc:mysql://localhost:3306/calendarservice
-    username: yanglet
-    password: yanglet
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
 
   jpa:
-    hibernate:
-      ddl-auto: create-drop
     properties:
       hibernate:
-        show_sql: true
-        format_sql: true
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: 646605626501-jcfg1l11j0pjej58vjemsda69ad09f4m.apps.googleusercontent.com
-            client-secret: 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
-            scope:
-              - email
-              - profile
-
-          naver:
-            client-id: RsssOb69c_pL5U78gjhf
-            client-secret: QD0WhBdPzb
-            scope:
-              - name
-              - email
-            client-name: Naver
-            authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:9090/login/oauth2/code/naver
-
-        provider:
-          naver:
-            authorization-uri: https://nid.naver.com/oauth2.0/authorize
-            token-uri: https://nid.naver.com/oauth2.0/token
-            user-info-uri: https://openapi.naver.com/v1/nid/me
-            user-name-attribute: response
-
-logging.level:
-  org.hibernate.SQL: debug
-
-server:
-  port: 9090
-#  org.hibernate.type: trace
-
