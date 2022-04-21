@@ -1,7 +1,7 @@
 #1/bin/bash
 
 REPOSITORY=/home/ec2-user/app/step2
-PROJET_NAME=Spring-Security
+PROJECT_NAME=Spring-Security
 
 echo "> Build 파일복사"
 
