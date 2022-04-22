@@ -19,3 +19,6 @@
 - [AWS CodeDeploy 연동](https://yanglet.tistory.com/17)
 - [Travis CI, S3, CodeDeploy 연동 1](https://yanglet.tistory.com/18)
 - [Travis CI, S3, CodeDeploy 연동 2](https://yanglet.tistory.com/19)
+
+### CD 무중단 배포
+- [Nginx를 이용한 무중단 배포](https://yanglet.tistory.com/22)
