@@ -1,7 +1,5 @@
 # Spring-Security
 
-## [배포한 홈페이지](http://ec2-3-38-71-198.ap-northeast-2.compute.amazonaws.com)
-
 ### 구현
 - Spring Security & Oauth2를 이용한 로그인, 소셜 로그인(구글, 네이버) 구현, 권한처리, 오류(예외) 페이지
 
